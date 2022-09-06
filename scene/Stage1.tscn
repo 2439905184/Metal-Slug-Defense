@@ -1,0 +1,287 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/level/4.png" type="Texture" id=1]
+[ext_resource path="res://Alibaba-PuHuiTi-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://object/AP.gd" type="Script" id=3]
+[ext_resource path="res://resource/puhuiti40.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scene/Stage1.gd" type="Script" id=5]
+[ext_resource path="res://assets/door.png" type="Texture" id=6]
+[ext_resource path="res://scene/DoorEnemy.gd" type="Script" id=7]
+[ext_resource path="res://assets/gui/menu_mission.png" type="Texture" id=8]
+[ext_resource path="res://object/Enemy.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.392157, 0.858824, 0.32549, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 64, 21 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 21, 64, 21 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 42, 64, 21 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 60, 64, 30 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 90, 64, 30 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 132, 0, 66, 42 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 132, 42, 66, 42 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 122, 64, 61 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 64, 85 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 64, 85 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 320, 0, 64, 85 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 64, 85 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 15 ), SubResource( 14 ) ],
+"loop": false,
+"name": "open",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 30.75, 40 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 8 )
+region = Rect2( 229, 204, 93, 19 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "Mission"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mission:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mission:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="bg" type="TextureRect" parent="."]
+margin_left = -23.0
+margin_top = 185.0
+margin_right = 2025.0
+margin_bottom = 441.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1033.0
+margin_bottom = 40.0
+color = Color( 0.105882, 0.0980392, 0.0980392, 1 )
+
+[node name="Life" type="ProgressBar" parent="."]
+margin_left = 3.0
+margin_top = 10.0
+margin_right = 162.0
+margin_bottom = 24.0
+custom_styles/fg = SubResource( 1 )
+value = 100.0
+
+[node name="TargetLift" type="ProgressBar" parent="."]
+margin_left = 863.0
+margin_top = 12.0
+margin_right = 1022.0
+margin_bottom = 26.0
+custom_styles/fg = SubResource( 1 )
+value = 100.0
+
+[node name="AP" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 469.0
+margin_right = 151.0
+margin_bottom = 497.0
+custom_fonts/font = SubResource( 2 )
+text = "AP:0000/0100"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="AP"]
+wait_time = 0.5
+autostart = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -3.0
+margin_top = 517.0
+margin_right = 1018.0
+margin_bottom = 597.0
+color = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
+
+[node name="XiaoBing" type="Button" parent="."]
+margin_left = 45.0
+margin_top = 508.0
+margin_right = 135.0
+margin_bottom = 569.0
+custom_fonts/font = ExtResource( 4 )
+text = "小兵"
+
+[node name="HuoXinRen" type="Button" parent="."]
+margin_left = 140.0
+margin_top = 507.0
+margin_right = 230.0
+margin_bottom = 568.0
+custom_fonts/font = ExtResource( 4 )
+disabled = true
+text = "火星人"
+
+[node name="KuangGong" type="Button" parent="."]
+margin_left = 278.0
+margin_top = 508.0
+margin_right = 386.0
+margin_bottom = 569.0
+custom_fonts/font = ExtResource( 4 )
+text = "矿工"
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 44, 341 )
+
+[node name="Door" type="AnimatedSprite" parent="."]
+position = Vector2( 30, 337 )
+frames = SubResource( 3 )
+animation = "open"
+
+[node name="DoorEnemy" type="StaticBody2D" parent="."]
+position = Vector2( 972, 350 )
+collision_layer = 4
+script = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="DoorEnemy"]
+frames = SubResource( 3 )
+animation = "open"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorEnemy"]
+position = Vector2( -2.75, -2 )
+shape = SubResource( 16 )
+
+[node name="Mission" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 458, 259 )
+scale = Vector2( 2.71053, 2.71053 )
+texture = SubResource( 17 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Mission = SubResource( 18 )
+anims/RESET = SubResource( 19 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 70.0
+margin_top = 572.0
+margin_right = 110.0
+margin_bottom = 586.0
+text = "30"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 178.0
+margin_top = 573.0
+margin_right = 218.0
+margin_bottom = 587.0
+text = "50"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 307.0
+margin_top = 573.0
+margin_right = 347.0
+margin_bottom = 587.0
+text = "40"
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 855, 324 )
+
+[node name="Win" type="Label" parent="."]
+visible = false
+margin_left = 458.0
+margin_top = 191.0
+margin_right = 536.0
+margin_bottom = 246.0
+custom_fonts/font = ExtResource( 4 )
+text = "胜利"
+
+[node name="Back" type="Button" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 311.0
+margin_top = 66.0
+margin_right = 445.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 4 )
+text = "返回"
+
+[connection signal="timeout" from="AP/Timer" to="AP" method="_on_Timer_timeout"]
+[connection signal="pressed" from="XiaoBing" to="." method="_on_XiaoBing_pressed"]
+[connection signal="pressed" from="HuoXinRen" to="." method="_on_HuoXinRen_pressed"]
+[connection signal="pressed" from="KuangGong" to="." method="_on_KuangGong_pressed"]
+[connection signal="life_down" from="DoorEnemy" to="." method="_on_DoorEnemy_life_down"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

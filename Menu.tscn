@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resource/puhuiti40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/gui/menuparts.png" type="Texture" id=2]
+[ext_resource path="res://Menu.gd" type="Script" id=3]
+[ext_resource path="res://resource/BackButton.tres" type="Texture" id=4]
+[ext_resource path="res://assets/ch/10.png" type="Texture" id=5]
+[ext_resource path="res://resource/Menu.tres" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 936, 122, 58, 46 )
+
+[sub_resource type="ShaderMaterial" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( -3, 2, 215, 237 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AttackButton" type="Button" parent="."]
+margin_left = 603.0
+margin_top = 87.0
+margin_right = 880.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 1 )
+text = "出击"
+
+[node name="up" type="Button" parent="."]
+margin_left = 605.0
+margin_top = 169.0
+margin_right = 876.0
+margin_bottom = 233.0
+custom_fonts/font = ExtResource( 1 )
+text = "强化"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -4.0
+margin_top = 490.0
+margin_right = 1026.0
+margin_bottom = 599.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="OptionButton" type="TextureButton" parent="."]
+margin_left = 195.0
+margin_top = 495.0
+margin_right = 333.0
+margin_bottom = 597.0
+texture_normal = SubResource( 1 )
+expand = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+margin_left = 18.0
+margin_top = 493.0
+margin_right = 156.0
+margin_bottom = 595.0
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="10" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 163, 252 )
+texture = SubResource( 2 )
+
+[node name="Menu" type="TextureRect" parent="."]
+margin_right = 65.0
+margin_bottom = 18.0
+texture = ExtResource( 6 )
+
+[connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]

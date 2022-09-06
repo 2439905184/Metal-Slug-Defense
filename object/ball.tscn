@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/ch/boss/yuehan/ball.png" type="Texture" id=1]
+[ext_resource path="res://object/ball.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 33, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 33, 0, 33, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 66, 0, 33, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 99, 0, 33, 64 )
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=32]
+
+[node name="ball" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 27 )
+animation = "shoot"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 9 )
+shape = SubResource( 32 )

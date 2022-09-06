@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Alibaba-PuHuiTi-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TapScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TapScreen"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TapScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 387.0
+margin_top = 102.0
+margin_right = 608.0
+margin_bottom = 157.0
+custom_fonts/font = SubResource( 1 )
+text = "MetaL SLUG"
+
+[node name="TapScreen" type="Label" parent="."]
+margin_left = 394.0
+margin_top = 441.0
+margin_right = 619.0
+margin_bottom = 496.0
+rect_rotation = 8.84497
+custom_fonts/font = SubResource( 1 )
+text = "Tap SCREEN"
+
+[node name="copyright" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 565.0
+margin_right = 1034.0
+margin_bottom = 593.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "code copy right 小沙盒工作室"
+align = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/TapScreen = SubResource( 4 )
